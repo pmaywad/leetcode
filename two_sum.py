@@ -11,3 +11,5 @@ class Solution(object):
                 return [i, req[target-nums[i]]]
             else:
                 req[nums[i]] = i
+                
+                
