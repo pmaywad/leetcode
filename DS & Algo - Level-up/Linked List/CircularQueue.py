@@ -85,7 +85,7 @@ class MyCircularQueue(object):
         """
         :rtype: bool
         """
-        if (self.rare + 1)% self.size == self.front:
+        if (self.rear + 1)% self.size == self.front:
             return True
         
         return False
