@@ -12,7 +12,7 @@ class MyCircularQueue(object):
         """
         self.size = k
         self.queue = [None]*k
-        self.front = self.rare = -1
+        self.front = self.rear = -1
         
 
     def enQueue(self, value):
@@ -24,12 +24,12 @@ class MyCircularQueue(object):
             return False
         
         if self.front == -1:
-            self.front = self.rare = 0
-            self.queue[self.rare] = value
+            self.front = self.rear = 0
+            self.queue[self.rear] = value
         
         else:
-            self.rare = (self.rare + 1) % self.size
-            self.queue[self.rare] = value
+            self.rear = (self.rear + 1) % self.size
+            self.queue[self.rear] = value
         
         return True
 
@@ -40,9 +40,9 @@ class MyCircularQueue(object):
         if self.isEmpty():
             return False
         
-        if self.rare == self.front:
+        if self.rear == self.front:
             self.queue[self.front] = None
-            self.rare = self.front = -1
+            self.rear = self.front = -1
             
         else:
             self.queue[self.front] = None
@@ -68,7 +68,7 @@ class MyCircularQueue(object):
             print("Queue is Empty")
             return -1
         
-        return self.queue[self.rare]
+        return self.queue[self.rear]
         
 
     def isEmpty(self):
